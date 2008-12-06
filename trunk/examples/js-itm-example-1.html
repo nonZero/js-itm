@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>js-itm Example #2</title>
+		<script type="text/javascript" src="../js-itm.js"></script>
+	</head>
+	<body>
+
+		<table>
+			<tr>
+				<th>ITM Ref</th>		
+				<th>Convert</th>		
+				<th>GPS Ref</th>		
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="itmref" value="222400631700"/></td>
+				</td>
+				<td>
+					<input type="button" id="convertitmref" value="&gt;&gt;"/>
+					<input type="button" id="convertgpsref" value="&lt&lt;"/>
+				</td>
+				<td>
+					<input type="text" id="gpsref" value="31.77805 35.23559"/></td>
+				</td>
+			</tr>
+		<script>
+
+		$ = function(s){
+			return document.getElementById(s)
+		};
+
+		$('convertitmref').onclick = function() {
+			try {
+				$('gpsref').value = JSITM.itmRef2gpsRef($('itmref').value);
+			} catch (e) {
+				alert('Error: ' + e);
+			}
+		}
+		$('convertgpsref').onclick = function() {
+			try {
+				$('itmref').value = JSITM.gpsRef2itmRef($('gpsref').value);
+			} catch (e) {
+				alert('Error: ' + e);
+			}
+		}
+		</script>
+		
+	</body>
+</html>
