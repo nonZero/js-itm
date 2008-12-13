@@ -4,7 +4,7 @@
  * @author Udi Oron (udioron at g mail dot com)
  * @author forked from <a href="http://www.nearby.org.uk/tests/GeoTools.html">GeoTools</a> by Paul Dixon
  * @copyright <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a>
- * @version 0.1 ($Rev$ $Date$)
+ * @version 0.1.1 ($Rev$ $Date$)
  */
 
 /**
@@ -449,7 +449,7 @@ JSITM.point2ItmRef = function(point, precision){
     var div = Math.pow(10, (6 - p));
     var east = Math.round(point.x / div);
     var north = Math.round(point.y / div);
-    return zeropad(east, p) + zeropad(north, p);
+    return zeropad(east, p) + ' ' + zeropad(north, p);
 	
 }
 
@@ -516,13 +516,33 @@ JSITM.gps2itm = function(latlng){
 /** Juicy part 4 ***************************************************************************/
 
 /**
+ * Converts an ITM grid refernece in 6, 8, 10 or 12 digits to a GPS angular Point instace
+ * @param {String} s
+ * @return {JSITM.Point}
+ */
+JSITM.itmRef2gps = function(s){
+	var point = this.itmRef2Point(s);
+	return this.itm2gps(point);
+}
+
+/**
  * Converts an ITM grid refernece in 6, 8, 10 or 12 digits to a GPS angular reference
  * @param {String} s
  * @return {String}
  */
 JSITM.itmRef2gpsRef = function(s){
-	var point = this.itmRef2Point(s);
-	return this.itm2gps(point).toString();
+	return this.itmRef2gps(s).toString();
+}
+
+/**
+ * Converts a GPS angular reference to an ITM LatLng instance
+ * @param {String} s
+ * @return {JSITM.LatLng} 
+ */
+
+JSITM.gpsRef2itm = function(s){
+	var latlng = this.latlngFromString(s);
+	return this.gps2itm(latlng);
 }
 
 /**
@@ -533,7 +553,6 @@ JSITM.itmRef2gpsRef = function(s){
  */
 
 JSITM.gpsRef2itmRef = function(s, precision){
-	var latlng = this.latlngFromString(s);
-	return this.point2ItmRef(this.gps2itm(latlng), precision || 6);
+	return this.point2ItmRef(this.gpsRef2itm(s), precision || 6);
 }
 
