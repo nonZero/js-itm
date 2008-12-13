@@ -18,9 +18,8 @@ JSITM = {};
 /**
  * Creates a new LatLng.
  * 
- * @class holds geographic coordinates measured in degrees. 
- * <p>
- * <a href="see http://en.wikipedia.org/wiki/Geographic_coordinate">see http://en.wikipedia.org/wiki/Geographic_coordinate</a>
+ * @class holds geographic coordinates measured in degrees.<br/>
+ * <a href="http://en.wikipedia.org/wiki/Geographic_coordinate">http://en.wikipedia.org/wiki/Geographic_coordinate</a>
  *
  * @constructor
  * @param {Number} lat latitude in degrees ( http://en.wikipedia.org/wiki/Latitude )
