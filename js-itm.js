@@ -1,6 +1,6 @@
 /**
  * @fileOverview js-itm: a Javascript library for converting between Israel Transverse Mercator (ITM) and GPS (WGS84) coordinates.<p>
- * 
+ * <a href="http://code.google.com/p/js-itm/">http://code.google.com/p/js-itm/</a>
  * @author Udi Oron (udioron at g mail dot com)
  * @author forked from <a href="http://www.nearby.org.uk/tests/GeoTools.html">GeoTools</a> by Paul Dixon
  * @copyright <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a>
