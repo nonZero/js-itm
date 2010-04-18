@@ -328,10 +328,10 @@ JSITM.TM.prototype.unproject = function(point){
     
     //Compute Latitude
     var VII = (Math.tan(PHId)) / (2 * rho * nu);
-    var VIII = ((Math.tan(PHId)) / (24 * rho * Math.pow(nu, 3))) * (5 + (3 * (Math.pow(Math.tan(PHId), 2))) + eta2 - (9 * eta2 * (Math.pow(Math.tan(PHId), 2))));
-    var IX = ((Math.tan(PHId)) / (720 * rho * Math.pow(nu, 5))) * (61 + (90 * ((Math.tan(PHId)) ^ 2)) + (45 * (Math.pow(Math.tan(PHId), 4))));
+    var VIII = ((Math.tan(PHId)) / (24 * rho * Math.pow(nu, 3))) * (5 + (3 * Math.pow(Math.tan(PHId), 2)) + eta2 - (9 * eta2 * (Math.pow(Math.tan(PHId), 2))));
+    var IX = (Math.tan(PHId) / (720 * rho * Math.pow(nu, 5))) * (61 + (90 * Math.pow(Math.tan(PHId), 2)) + (45 * (Math.pow(Math.tan(PHId), 4))));
     
-    var lat = (180 / Math.PI) * (PHId - (Math.pow(Et, 2) * VII) + (Math.pow(Et, 4) * VIII) - ((Et ^ 6) * IX));
+    var lat = (180 / Math.PI) * (PHId - (Math.pow(Et, 2) * VII) + (Math.pow(Et, 4) * VIII) - (Math.pow(Et, 6) * IX));
     
     //Compute Longitude
     var X = (Math.pow(Math.cos(PHId), -1)) / nu;
