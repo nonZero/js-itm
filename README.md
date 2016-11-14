@@ -8,13 +8,24 @@ JS-ITM is a simple Javascript library to convert between those two coordinate sy
 Please note that the conversion is NOT accurate and may include ~10m errors 
 (So don't design your skyscrapers, particle accelerators etc. using this library.)
 
-Quick Start:
+###Quick Start:
+
+In the browser:
 ```html
 <script type="text/javascript" src="js-itm.js"></script>
 <script>
   alert(JSITM.itmRef2gpsRef("222631"));
   alert(JSITM.gpsRef2itmRef("31.77805 35.23559"));
 </script>
+```
+
+With npm:
+`npm install js-itm --save`
+
+
+And then in the code:
+```javascript
+var JSITM = require('js-itm');`
 ```
 
 ----
